@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-corporate-blue: #0B2E73;
+  --color-navy-blue: #082452;
+  --color-brand-orange: #F26A21;
+  --color-light-bg: #F8FAFC;
+  --color-border-gray: #E5E7EB;
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #64748B;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-poppins text-text-primary bg-white antialiased overflow-x-hidden w-full;
+  }
+}

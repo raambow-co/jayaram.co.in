@@ -1,7 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Zap, Building2, Landmark, ShieldCheck, Briefcase, Quote, Star, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network } from 'lucide-react';
 const India3DMap = lazy(() => import('../components/India3DMap'));
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -26,24 +26,89 @@ const itemVariants = {
   }
 };
 
-const testimonials = [
-  { text: "Jayarams Bharat executed our 5MW solar installation with exceptional precision. Their engineering team is top-tier.", author: "Rajesh Kumar", role: "Director, TechPark Solutions" },
-  { text: "The EV infrastructure deployed by them across our fleet hubs has been flawless and highly reliable.", author: "Anjali Desai", role: "VP Operations, EcoTransit" },
+const testimonialsRow1 = [
+  { text: "Jayarams Bharat executed our 5MW solar & EV fleet charging hub with exceptional precision. Top-tier engineering.", author: "Rajesh Kumar", role: "Director, TechPark Solutions" },
+  { text: "The environmental wastewater recycling plant achieved 100% zero liquid discharge compliance effortlessly.", author: "Anjali Desai", role: "VP Operations, EcoTransit" },
   { text: "Unmatched expertise in government tenders. They delivered our command center project ahead of schedule.", author: "Vikram Singh", role: "Chief Engineer, State Infra" },
-  { text: "Their CC Securities division completely overhauled our enterprise surveillance. Highly professional.", author: "Priya Sharma", role: "Head of Security, Nexus Corp" },
-  { text: "Strategic consultancy that actually delivers. They navigated complex regulatory approvals effortlessly.", author: "Amit Patel", role: "Managing Partner, BuildRight" },
+  { text: "Their Network Integration team completely transformed our enterprise infrastructure with high-speed fiber backbones.", author: "Priya Sharma", role: "Head of Infrastructure, Nexus Corp" },
+  { text: "Strategic engineering consultancy that navigated complex regulatory and environmental approvals smoothly.", author: "Amit Patel", role: "Managing Partner, BuildRight" },
+];
+
+const testimonialsRow2 = [
+  { text: "Flawless rainwater harvesting and groundwater recharging across our 40-acre commercial campus.", author: "Dr. K. Venkat Rao", role: "Sustainability Lead, GreenAcre" },
+  { text: "High-power DC EV charging stations deployed across 12 highway corridors with outstanding 99.9% uptime.", author: "Arvind Menon", role: "Fleet Director, TransLogix" },
+  { text: "Seamless institutional procurement and transparent supply chain execution on mission-critical tenders.", author: "R. K. Nambiar", role: "Procurement Head, State Works" },
+  { text: "Enterprise structured cabling and unified video surveillance integration executed flawlessly across 6 facilities.", author: "Sunita Reddy", role: "CIO, Apex Systems" },
+  { text: "Turnkey Solar EPC execution with real-time SCADA telemetry and proactive preventive maintenance support.", author: "Meera Nair", role: "General Manager, SunPower Corp" },
 ];
 
 const featuredProjects = [
-  "/solar-jairam.jpeg",
-  "/cctv.jpeg",
-  "/government-supplies.jpeg",
-  "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop"
+  {
+    img: "/sustainability-infra.jpg",
+    title: "Sustainable Environmental Hub",
+    desc: "Closed-loop wastewater reclamation and eco-resilient civil engineering."
+  },
+  {
+    img: "/renewable-energies.jpg",
+    title: "Renewable Energy Hub",
+    desc: "Commercial Solar EPC coupled with high-speed EV charging infrastructure."
+  },
+  {
+    img: "/network-integration.jpg",
+    title: "Enterprise Network & Command Center",
+    desc: "Optical fiber backbones integrated with AI surveillance systems."
+  },
+  {
+    img: "/government-supplies.jpeg",
+    title: "Government Procurement & Supplies",
+    desc: "Institutional delivery and national tender fulfillment across sectors."
+  },
+  {
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop",
+    title: "Infrastructure Consultancy & PMO",
+    desc: "Technical feasibility, regulatory clearances, and capital advisory."
+  }
 ];
 
+const ReviewCard = ({ t }) => (
+  <div className="w-[310px] sm:w-[350px] md:w-[390px] bg-white px-5 py-3.5 rounded-xl border border-border-gray/70 hover:border-brand-orange/40 shrink-0 whitespace-normal flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-default group/card">
+    {/* Top Bar: Stars & Verified Badge */}
+    <div className="flex justify-between items-center mb-1.5">
+      <div className="flex gap-1">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-3.5 h-3.5 fill-brand-orange text-brand-orange" />
+        ))}
+      </div>
+      <div className="flex items-center gap-1.5 bg-light-bg px-2 py-0.5 rounded-full border border-border-gray">
+        <span className="text-[9px] font-bold text-corporate-blue uppercase tracking-wider">Verified</span>
+        <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+      </div>
+    </div>
+
+    {/* Quote Text (Compact height) */}
+    <p className="text-text-primary text-xs md:text-sm leading-snug my-1.5 font-medium line-clamp-2">
+      "{t.text}"
+    </p>
+
+    {/* Bottom Bar: Author Profile */}
+    <div className="flex items-center justify-between pt-2 border-t border-light-bg mt-auto">
+      <div className="flex items-center gap-2.5 min-w-0">
+        <div className="w-7 h-7 rounded-full bg-corporate-blue/10 flex items-center justify-center text-corporate-blue font-bold text-xs shrink-0 border border-corporate-blue/20">
+          {t.author.charAt(0)}
+        </div>
+        <div className="min-w-0">
+          <h4 className="font-bold text-corporate-blue text-xs truncate leading-tight">{t.author}</h4>
+          <p className="text-[10px] text-text-secondary uppercase tracking-wider truncate leading-tight">{t.role}</p>
+        </div>
+      </div>
+      <div className="w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0 group-hover/card:bg-brand-orange transition-colors">
+        <ChevronRight className="w-3 h-3 text-brand-orange group-hover/card:text-white transition-colors" />
+      </div>
+    </div>
+  </div>
+);
+
 const Home = () => {
-  const prefersReducedMotion = useReducedMotion();
   const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
@@ -124,12 +189,12 @@ const Home = () => {
                   </span>
                 </motion.a>
                 <motion.div variants={itemVariants}>
-                  <Link 
-                    to="/contact" 
+                  <a 
+                    href="#contact" 
                     className="block px-8 py-3.5 bg-white border-2 border-border-gray text-text-primary text-sm font-semibold rounded-full hover:border-corporate-blue hover:text-corporate-blue transition-all duration-300 text-center active:scale-[0.98]"
                   >
                     Contact Us
-                  </Link>
+                  </a>
                 </motion.div>
               </motion.div>
             </div>
@@ -184,18 +249,19 @@ const Home = () => {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]"
+            id="divisions"
+            className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px] scroll-mt-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
           >
             {[
-              { name: "Solar EPC", icon: Zap, link: "/solar-epc", desc: "End-to-end solar power plant design & construction.", img: "/solar-jairam.jpeg", span: "md:col-span-7" },
-              { name: "EV Infrastructure", icon: Zap, link: "/ev-infrastructure", desc: "Nationwide electric vehicle charging networks.", img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop", span: "md:col-span-5" },
-              { name: "Government Supplies", icon: Landmark, link: "/government-supplies", desc: "Institutional procurement and execution.", img: "/government-supplies.jpeg", span: "md:col-span-4" },
-              { name: "CC Securities", icon: ShieldCheck, link: "/cc-securities", desc: "Enterprise-grade surveillance systems.", img: "/cctv.jpeg", span: "md:col-span-4" },
-              { name: "Consultancy Services", icon: Briefcase, link: "/consultancy-services", desc: "Technical feasibility and project management.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop", span: "md:col-span-4" }
+              { name: "Sustainability & Environmental Infrastructure", icon: Leaf, link: "/sustainability-environmental-infrastructure", desc: "Water treatment, waste recovery & climate-resilient green engineering.", img: "/sustainability-infra.jpg", span: "md:col-span-7" },
+              { name: "Renewable Energies", icon: Zap, link: "/renewable-energies", desc: "End-to-end Solar EPC and nationwide EV charging networks.", img: "/renewable-energies.jpg", span: "md:col-span-5" },
+              { name: "Government Supplies", icon: Landmark, link: "/government-supplies", desc: "Institutional procurement and mission-critical tender execution.", img: "/government-supplies.jpeg", span: "md:col-span-4" },
+              { name: "Network Integration", icon: Network, link: "/network-integration", desc: "Enterprise networking, smart AI surveillance & command centers.", img: "/network-integration.jpg", span: "md:col-span-4" },
+              { name: "Consultancy Services", icon: Briefcase, link: "/consultancy-services", desc: "Technical feasibility, regulatory compliance & project advisory.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop", span: "md:col-span-4" }
             ].map((division, idx) => (
               <motion.div key={idx} variants={itemVariants} className={`relative overflow-hidden rounded-xl group ${division.span} shadow-md`}>
                 <Link to={division.link} className="block w-full h-full relative">
@@ -219,8 +285,7 @@ const Home = () => {
                     <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30 transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-orange group-hover:border-brand-orange">
                       <division.icon size={20} className="text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 tracking-tight drop-shadow-md">{division.name}</h3>
-                    <p className="text-white/90 text-sm max-w-sm mb-4 line-clamp-2 drop-shadow-sm">{division.desc}</p>
+                    <h3 className="text-2xl font-bold mb-3 tracking-tight drop-shadow-md">{division.name}</h3>
                     <div className="flex items-center text-brand-orange font-bold text-xs uppercase tracking-wider group-hover:text-white transition-colors duration-300">
                       Explore Division <ArrowRight size={14} className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1.5" />
                     </div>
@@ -248,7 +313,7 @@ const Home = () => {
         </div>
         
         <div className="relative h-[300px] md:h-[500px] w-full flex justify-center items-center mt-8">
-          {featuredProjects.map((img, index) => {
+          {featuredProjects.map((project, index) => {
             const offset = (index - activeIndex + featuredProjects.length) % featuredProjects.length;
             const isCenter = offset === 0;
             const isLeft = offset === featuredProjects.length - 1;
@@ -293,11 +358,11 @@ const Home = () => {
                 style={{ zIndex: isCenter ? 50 : 40 }}
               >
                 <div className="absolute inset-0 bg-corporate-blue/30 mix-blend-overlay z-10 pointer-events-none transition-opacity duration-700" style={{ opacity: isCenter ? 0 : 1 }}></div>
-                <img src={img} alt="Project" className="w-full h-full object-cover" />
+                <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
                 {isCenter && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 z-20">
-                    <h3 className="text-white text-2xl font-bold mb-2">Project {index + 1}</h3>
-                    <p className="text-white/80 text-sm">Executing national infrastructure at scale.</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-8 z-20">
+                    <h3 className="text-white text-xl md:text-2xl font-bold mb-1.5">{project.title}</h3>
+                    <p className="text-white/85 text-xs md:text-sm">{project.desc}</p>
                   </div>
                 )}
               </motion.div>
@@ -323,53 +388,37 @@ const Home = () => {
           </motion.div>
         </div>
         
-        <div className="relative flex overflow-x-hidden w-full group py-8">
-          <motion.div 
-            className="flex whitespace-nowrap gap-8 px-4 items-center"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-          >
-            {/* Double the array for seamless infinite scroll */}
-            {[...testimonials, ...testimonials].map((t, idx) => (
-              <div key={idx} className="w-[300px] md:w-[350px] bg-white p-6 rounded-2xl border border-transparent hover:border-brand-orange/20 shrink-0 whitespace-normal flex flex-col relative overflow-hidden group/card shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] transform hover:-translate-y-2 transition-all duration-500 cursor-default">
-                
-                {/* Huge Watermark Quote */}
-                <Quote className="absolute -top-3 -left-3 w-20 h-20 text-light-bg -z-10 opacity-70 rotate-180 transform transition-transform duration-500 group-hover/card:scale-110" />
+        {/* Dual Marquee Rows */}
+        <div className="relative w-full overflow-hidden flex flex-col gap-4 py-4">
+          {/* Left & Right Edge Gradient Fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-28 bg-gradient-to-r from-light-bg to-transparent z-20"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-28 bg-gradient-to-l from-light-bg to-transparent z-20"></div>
 
-                {/* Top Bar: Stars & Badge */}
-                <div className="flex justify-between items-start mb-4 z-10">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-brand-orange text-brand-orange" />
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-1.5 bg-light-bg px-2.5 py-1 rounded-full border border-border-gray">
-                    <span className="text-[9px] font-bold text-corporate-blue uppercase tracking-wider">Verified</span>
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                  </div>
-                </div>
+          {/* Row 1: Left to Right */}
+          <div className="flex overflow-hidden w-full">
+            <motion.div 
+              className="flex whitespace-nowrap gap-5 px-2 items-center"
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+            >
+              {[...testimonialsRow1, ...testimonialsRow1].map((t, idx) => (
+                <ReviewCard key={`row1-${idx}`} t={t} />
+              ))}
+            </motion.div>
+          </div>
 
-                {/* Quote Text */}
-                <p className="text-text-primary text-sm leading-relaxed mb-6 flex-grow z-10 font-medium">"{t.text}"</p>
-                
-                {/* Bottom Bar: Author Profile */}
-                <div className="flex items-center justify-between z-10 mt-auto pt-4 border-t border-light-bg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-light-bg rounded-full flex items-center justify-center text-corporate-blue font-bold text-lg shadow-sm border border-border-gray">
-                      {t.author.charAt(0)}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-corporate-blue text-xs md:text-sm">{t.author}</h4>
-                      <p className="text-[10px] text-text-secondary uppercase tracking-widest">{t.role}</p>
-                    </div>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-brand-orange/10 flex items-center justify-center group-hover/card:bg-brand-orange transition-colors duration-300">
-                    <ChevronRight className="w-3 h-3 text-brand-orange group-hover/card:text-white transition-colors duration-300" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+          {/* Row 2: Right to Left */}
+          <div className="flex overflow-hidden w-full">
+            <motion.div 
+              className="flex whitespace-nowrap gap-5 px-2 items-center"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+            >
+              {[...testimonialsRow2, ...testimonialsRow2].map((t, idx) => (
+                <ReviewCard key={`row2-${idx}`} t={t} />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -442,10 +491,10 @@ const Home = () => {
                 <div className="relative group/input mt-2">
                   <select className="w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 appearance-none font-medium">
                     <option value="" disabled selected hidden>Select Service Required</option>
-                    <option>Solar EPC Solutions</option>
-                    <option>EV Infrastructure</option>
+                    <option>Sustainability & Environmental Infrastructure</option>
+                    <option>Renewable Energies (Solar EPC & EV)</option>
                     <option>Government Supplies & CSR</option>
-                    <option>CC Securities</option>
+                    <option>Network Integration & Security</option>
                     <option>Consultancy Services</option>
                   </select>
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-orange">

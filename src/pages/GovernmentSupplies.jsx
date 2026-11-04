@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import DivisionEnquiry from '../components/DivisionEnquiry';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -126,9 +126,9 @@ const GovernmentSupplies = () => {
                 ))}
               </motion.ul>
               <motion.div variants={itemVariants}>
-                <Link to="/contact" className="group inline-flex items-center gap-2 px-6 py-3 bg-corporate-blue text-white font-medium rounded hover:bg-navy-blue transition-colors duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                <a href="#division-enquiry" className="group inline-flex items-center gap-2 px-6 py-3 bg-corporate-blue text-white font-medium rounded hover:bg-navy-blue transition-colors duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
                   Partner With Us <ArrowRight size={18} className="transform transition-transform duration-300 group-hover:translate-x-1.5" />
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
             
@@ -203,6 +203,30 @@ const GovernmentSupplies = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Dedicated Division Enquiry Section */}
+      <DivisionEnquiry
+        divisionName="Government Supplies & Institutional Procurement"
+        badge="Institutional & Tender Helpdesk"
+        subtitle="Submit tender inquiries, GeM requirements, CSR infrastructure mandates, and institutional supply contracts directly to our dedicated procurement desk."
+        divisionEmail="tenders@jayaramsbharat.com"
+        divisionPhone="+91 98765 43210"
+        scaleFieldLabel="Tender / RFP Ref No. & Estimated Value"
+        slaText="Tender compliance check & documentation turnaround within 24 hours."
+        services={[
+          'Tender Evaluation & GeM Execution',
+          'CSR Infrastructure Development',
+          'Public Sector Material & Equipment Supply',
+          'Command Center & High-Tech Hardware Supplies',
+          'Rural & Municipal Civil Infrastructure Supplies',
+          'Disaster Relief & Emergency Procurement'
+        ]}
+        highlights={[
+          'GeM Portal Registered Enterprise Vendor',
+          'Strict Statutory & Quality Compliance',
+          'Pan-India Multi-Modal Logistics & Timely Handover'
+        ]}
+      />
     </div>
   );
 };

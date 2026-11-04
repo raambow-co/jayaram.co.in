@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import DivisionEnquiry from '../components/DivisionEnquiry';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -126,9 +126,9 @@ const ConsultancyServices = () => {
                 ))}
               </motion.ul>
               <motion.div variants={itemVariants}>
-                <Link to="/contact" className="group inline-flex items-center gap-2 px-6 py-3 bg-corporate-blue text-white font-medium rounded hover:bg-navy-blue transition-colors duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
-                  Schedule a Meeting <ArrowRight size={18} className="transform transition-transform duration-300 group-hover:translate-x-1.5" />
-                </Link>
+                <a href="#division-enquiry" className="group inline-flex items-center gap-2 px-6 py-3 bg-corporate-blue text-white font-medium rounded hover:bg-navy-blue transition-colors duration-300 shadow-md hover:shadow-lg active:scale-[0.98]">
+                  Schedule a Consultation <ArrowRight size={18} className="transform transition-transform duration-300 group-hover:translate-x-1.5" />
+                </a>
               </motion.div>
             </motion.div>
             
@@ -203,6 +203,30 @@ const ConsultancyServices = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Dedicated Division Enquiry Section */}
+      <DivisionEnquiry
+        divisionName="Consultancy Services & Infrastructure Advisory"
+        badge="Strategic Advisory & PMO Desk"
+        subtitle="Engage our senior infrastructure advisors for techno-commercial feasibility, detailed project reports (DPR), regulatory clearances, and comprehensive PMO oversight."
+        divisionEmail="consultancy@jayaramsbharat.com"
+        divisionPhone="+91 98765 43210"
+        scaleFieldLabel="Target Capital Outlay (Capex) / Project Type"
+        slaText="Initial project scope review & advisory consultation scheduled within 24-48 hours."
+        services={[
+          'Detailed Project Reports (DPR) & TEFR',
+          'Project Management Consultancy (PMC / PMO)',
+          'Statutory, Municipal & Environmental Clearances',
+          'Financial Feasibility & Capital Structuring',
+          'Contract Advisory & Vendor Due Diligence',
+          'Risk Assessment & Value Engineering'
+        ]}
+        highlights={[
+          'Multi-Disciplinary Advisory Panel',
+          'Pan-India Regulatory & Liaison Network',
+          'Risk Mitigation & Capital Optimization'
+        ]}
+      />
     </div>
   );
 };

@@ -71,7 +71,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Building India's Future Through Engineering Excellence. We deliver premium infrastructure, solar, EV, and security solutions across the nation.
+              Building India's Future Through Engineering Excellence. We deliver turnkey renewable energies, environmental infrastructure, government supplies, network integration, and engineering consultancy across the nation.
             </p>
             <div className="flex gap-4">
               {[
@@ -111,10 +111,10 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="flex flex-col gap-6">
             <h3 className="text-lg font-semibold border-b border-white/20 pb-2 inline-block relative after:absolute after:bottom-[-1px] after:left-0 after:w-1/3 after:h-[1px] after:bg-brand-orange">Our Divisions</h3>
             <ul className="flex flex-col gap-3 text-sm">
-              <FooterLink to="/solar-epc">Solar EPC Solutions</FooterLink>
-              <FooterLink to="/ev-infrastructure">EV Infrastructure</FooterLink>
+              <FooterLink to="/sustainability-environmental-infrastructure">Sustainability & Environmental Infrastructure</FooterLink>
+              <FooterLink to="/renewable-energies">Renewable Energies</FooterLink>
               <FooterLink to="/government-supplies">Government Supplies</FooterLink>
-              <FooterLink to="/cc-securities">CC Securities</FooterLink>
+              <FooterLink to="/network-integration">Network Integration</FooterLink>
               <FooterLink to="/consultancy-services">Consultancy Services</FooterLink>
             </ul>
           </motion.div>

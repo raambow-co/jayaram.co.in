@@ -9,7 +9,7 @@
  */
 
 import React, {
-  useRef, useMemo, Suspense, useState, useEffect, lazy,
+  useRef, useMemo, Suspense, useState, useEffect,
 } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, OrthographicCamera, Edges, ContactShadows } from '@react-three/drei';
@@ -294,7 +294,7 @@ export default function India3DMap({ className = '' }) {
           setLoading(false);
           return;
         }
-      } catch (_) {
+      } catch {
         // try next source
       }
     }

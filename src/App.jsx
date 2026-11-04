@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageWrapper from './components/PageWrapper';
 import Home from './pages/Home';
-import SolarEPC from './pages/SolarEPC';
-import EVInfrastructure from './pages/EVInfrastructure';
+import RenewableEnergies from './pages/RenewableEnergies';
+import SustainabilityInfrastructure from './pages/SustainabilityInfrastructure';
+import NetworkIntegration from './pages/NetworkIntegration';
 import GovernmentSupplies from './pages/GovernmentSupplies';
-import CCSecurities from './pages/CCSecurities';
 import ConsultancyServices from './pages/ConsultancyServices';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -34,11 +34,18 @@ const AnimatedRoutes = () => {
         <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
         <Route path="/testimonials" element={<PageWrapper><Testimonials /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-        <Route path="/solar-epc" element={<PageWrapper><SolarEPC /></PageWrapper>} />
-        <Route path="/ev-infrastructure" element={<PageWrapper><EVInfrastructure /></PageWrapper>} />
+        
+        {/* Core Divisions */}
+        <Route path="/renewable-energies" element={<PageWrapper><RenewableEnergies /></PageWrapper>} />
+        <Route path="/sustainability-environmental-infrastructure" element={<PageWrapper><SustainabilityInfrastructure /></PageWrapper>} />
+        <Route path="/network-integration" element={<PageWrapper><NetworkIntegration /></PageWrapper>} />
         <Route path="/government-supplies" element={<PageWrapper><GovernmentSupplies /></PageWrapper>} />
-        <Route path="/cc-securities" element={<PageWrapper><CCSecurities /></PageWrapper>} />
         <Route path="/consultancy-services" element={<PageWrapper><ConsultancyServices /></PageWrapper>} />
+
+        {/* Backward Compatibility Redirects */}
+        <Route path="/solar-epc" element={<Navigate to="/renewable-energies" replace />} />
+        <Route path="/ev-infrastructure" element={<Navigate to="/renewable-energies" replace />} />
+        <Route path="/cc-securities" element={<Navigate to="/network-integration" replace />} />
       </Routes>
     </AnimatePresence>
   );

@@ -31,15 +31,15 @@ const Navbar = () => {
   ];
 
   const divisionLinks = [
-    { name: 'Solar EPC', path: '/solar-epc' },
-    { name: 'EV Infrastructure', path: '/ev-infrastructure' },
+    { name: 'Sustainability & Environmental Infrastructure', path: '/sustainability-environmental-infrastructure' },
+    { name: 'Renewable Energies', path: '/renewable-energies' },
     { name: 'Government Supplies', path: '/government-supplies' },
-    { name: 'CC Securities', path: '/cc-securities' },
+    { name: 'Network Integration', path: '/network-integration' },
     { name: 'Consultancy Services', path: '/consultancy-services' },
   ];
 
-  // Always white with a thin border and shadow falling onto the page below
-  const headerClass = `fixed w-full z-50 bg-white border-b border-gray-200 shadow-md py-4 transition-all duration-300`;
+  // Always white with a dynamic border and shadow falling onto the page below
+  const headerClass = `fixed w-full z-50 bg-white border-b border-gray-200 ${isScrolled ? 'shadow-md py-3' : 'shadow-sm py-4'} transition-all duration-300`;
 
   const textClass = `font-medium relative py-2 transition-colors duration-300 text-text-primary hover:text-corporate-blue`;
 
@@ -86,14 +86,14 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 5, scale: 0.98 }}
                         transition={{ duration: 0.3, ease: easePremium }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-sm shadow-xl border border-border-gray overflow-hidden origin-top"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-xl shadow-xl border border-border-gray overflow-hidden origin-top"
                       >
                         <div className="py-2">
                           {divisionLinks.map((divLink) => (
                             <Link
                               key={divLink.name}
                               to={divLink.path}
-                              className="block px-4 py-2.5 text-sm text-text-secondary hover:text-brand-orange hover:bg-light-bg transition-colors duration-200"
+                              className="block px-4 py-2.5 text-sm text-text-secondary hover:text-brand-orange hover:bg-light-bg transition-colors duration-200 leading-snug"
                             >
                               {divLink.name}
                             </Link>
@@ -125,7 +125,7 @@ const Navbar = () => {
           
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
-              to="/contact"
+              to="/#contact"
               className="px-6 py-2.5 bg-brand-orange text-white font-medium rounded hover:bg-orange-600 transition-colors duration-300 shadow-sm flex items-center gap-2 group"
             >
               Get in Touch
@@ -183,7 +183,7 @@ const Navbar = () => {
                 </div>
               ))}
               <Link
-                to="/contact"
+                to="/#contact"
                 className="mt-4 px-6 py-3 bg-brand-orange text-white text-center font-medium rounded active:scale-[0.98] transition-transform"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

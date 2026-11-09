@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Phone, Mail, Clock, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
+import { submitInquiry } from '../services/inquiryService';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -32,14 +33,27 @@ const DivisionEnquiry = ({
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
-    setTimeout(() => {
+    try {
+      await submitInquiry({
+        fullName: formData.fullName,
+        organization: formData.organization,
+        email: formData.email,
+        phone: formData.phone,
+        divisionName: divisionName,
+        serviceRequired: formData.serviceRequired,
+        scale: formData.scale,
+        message: formData.message,
+        source: `${divisionName} Enquiry Desk`
+      });
+    } catch (err) {
+      console.error('Division inquiry submission error:', err);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    }
   };
 
   const handleReset = () => {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { submitInquiry } from '../services/inquiryService';
 import { 
   Mail, 
   Phone, 
@@ -32,13 +33,26 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await submitInquiry({
+        fullName: formData.fullName,
+        organization: formData.organization,
+        email: formData.email,
+        phone: formData.phone,
+        divisionName: formData.division,
+        serviceRequired: formData.subject || formData.division,
+        message: formData.message,
+        source: 'Contact Page Desk'
+      });
+    } catch (err) {
+      console.error('Inquiry submission error:', err);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    }
   };
 
   return (

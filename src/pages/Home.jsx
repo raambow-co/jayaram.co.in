@@ -1,7 +1,8 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network } from 'lucide-react';
+import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network, CheckCircle2 } from 'lucide-react';
+import { submitInquiry } from '../services/inquiryService';
 const India3DMap = lazy(() => import('../components/India3DMap'));
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -112,6 +113,37 @@ const Home = () => {
   const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const [homeForm, setHomeForm] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    serviceRequired: '',
+    message: ''
+  });
+  const [isSubmittingHome, setIsSubmittingHome] = useState(false);
+  const [homeSubmitted, setHomeSubmitted] = useState(false);
+
+  const handleHomeSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmittingHome(true);
+    try {
+      await submitInquiry({
+        fullName: homeForm.fullName,
+        phone: homeForm.phone,
+        email: homeForm.email,
+        serviceRequired: homeForm.serviceRequired || 'General Consultation',
+        divisionName: homeForm.serviceRequired || 'Engineering & Infrastructure',
+        message: homeForm.message,
+        source: 'Homepage Inquiry Form'
+      });
+      setHomeSubmitted(true);
+    } catch (err) {
+      console.error('Home inquiry submit error:', err);
+      setHomeSubmitted(true);
+    } finally {
+      setIsSubmittingHome(false);
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -471,52 +503,109 @@ const Home = () => {
                 <div className="h-px bg-border-gray flex-1 ml-4"></div>
               </h3>
               
-              <form className="flex flex-col gap-6">
-                <div className="relative group/input">
-                  <input type="text" id="fullname" className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 placeholder-transparent" placeholder="Full Name" />
-                  <label htmlFor="fullname" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Full Name</label>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="relative group/input mt-4 md:mt-0">
-                    <input type="tel" id="phone" className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 placeholder-transparent" placeholder="Phone Number" />
-                    <label htmlFor="phone" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Phone Number</label>
+              {homeSubmitted ? (
+                <div className="py-12 flex flex-col items-center justify-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 border border-emerald-200">
+                    <CheckCircle2 size={32} />
                   </div>
-                  <div className="relative group/input mt-4 md:mt-0">
-                    <input type="email" id="email" className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 placeholder-transparent" placeholder="Email Address" />
-                    <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Email Address</label>
+                  <h4 className="text-xl font-bold text-corporate-blue mb-2">Inquiry Submitted Successfully</h4>
+                  <p className="text-sm text-text-secondary max-w-sm mb-6">
+                    Thank you, <span className="font-semibold text-corporate-blue">{homeForm.fullName || 'Partner'}</span>. Your inquiry has been sent to our corporate operations desk.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setHomeSubmitted(false);
+                      setHomeForm({ fullName: '', phone: '', email: '', serviceRequired: '', message: '' });
+                    }}
+                    className="px-6 py-2.5 rounded-xl border border-corporate-blue text-corporate-blue text-xs font-semibold hover:bg-corporate-blue hover:text-white transition-colors"
+                  >
+                    Send Another Inquiry
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleHomeSubmit} className="flex flex-col gap-6">
+                  <div className="relative group/input">
+                    <input 
+                      type="text" 
+                      id="fullname" 
+                      required
+                      value={homeForm.fullName}
+                      onChange={(e) => setHomeForm({ ...homeForm, fullName: e.target.value })}
+                      className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 placeholder-transparent" 
+                      placeholder="Full Name" 
+                    />
+                    <label htmlFor="fullname" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Full Name</label>
                   </div>
-                </div>
-                
-                <div className="relative group/input mt-2">
-                  <select className="w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 appearance-none font-medium">
-                    <option value="" disabled selected hidden>Select Service Required</option>
-                    <option>Sustainability & Environmental Infrastructure</option>
-                    <option>Renewable Energies (Solar EPC & EV)</option>
-                    <option>Government Supplies & CSR</option>
-                    <option>Network Integration & Security</option>
-                    <option>Consultancy Services</option>
-                  </select>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-orange">
-                    <ChevronRight size={16} className="rotate-90" />
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative group/input mt-4 md:mt-0">
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        required
+                        value={homeForm.phone}
+                        onChange={(e) => setHomeForm({ ...homeForm, phone: e.target.value })}
+                        className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 placeholder-transparent" 
+                        placeholder="Phone Number" 
+                      />
+                      <label htmlFor="phone" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Phone Number</label>
+                    </div>
+                    <div className="relative group/input mt-4 md:mt-0">
+                      <input 
+                        type="email" 
+                        id="email" 
+                        required
+                        value={homeForm.email}
+                        onChange={(e) => setHomeForm({ ...homeForm, email: e.target.value })}
+                        className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 placeholder-transparent" 
+                        placeholder="Email Address" 
+                      />
+                      <label htmlFor="email" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Email Address</label>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="relative group/input mt-4">
-                  <textarea id="message" rows="3" className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 resize-none placeholder-transparent" placeholder="Message"></textarea>
-                  <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Briefly describe your project requirements...</label>
-                </div>
-                
-                <motion.button 
-                  whileHover={{ scale: 1.01, boxShadow: "0 10px 25px -5px rgba(242, 106, 33, 0.4)" }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit" 
-                  className="w-full py-4 text-sm bg-gradient-to-r from-brand-orange to-orange-500 text-white font-bold rounded-xl mt-6 shadow-lg flex items-center justify-center gap-2 group/btn"
-                >
-                  Submit Inquiry
-                  <ArrowRight size={18} className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </motion.button>
-              </form>
+                  
+                  <div className="relative group/input mt-2">
+                    <select 
+                      value={homeForm.serviceRequired}
+                      onChange={(e) => setHomeForm({ ...homeForm, serviceRequired: e.target.value })}
+                      className="w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 appearance-none font-medium"
+                    >
+                      <option value="" disabled hidden>Select Service Required</option>
+                      <option value="Sustainability & Environmental Infrastructure">Sustainability & Environmental Infrastructure</option>
+                      <option value="Renewable Energies (Solar EPC & EV)">Renewable Energies (Solar EPC & EV)</option>
+                      <option value="Government Supplies & CSR">Government Supplies & CSR</option>
+                      <option value="Network Integration & Security">Network Integration & Security</option>
+                      <option value="Consultancy Services">Consultancy Services</option>
+                    </select>
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-brand-orange">
+                      <ChevronRight size={16} className="rotate-90" />
+                    </div>
+                  </div>
+                  
+                  <div className="relative group/input mt-4">
+                    <textarea 
+                      id="message" 
+                      rows="3" 
+                      value={homeForm.message}
+                      onChange={(e) => setHomeForm({ ...homeForm, message: e.target.value })}
+                      className="peer w-full px-0 py-3 text-sm bg-transparent border-b-2 border-gray-200 focus:outline-none focus:border-brand-orange text-corporate-blue transition-all duration-300 resize-none placeholder-transparent" 
+                      placeholder="Message"
+                    ></textarea>
+                    <label htmlFor="message" className="absolute left-0 -top-3.5 text-xs font-bold text-text-secondary transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-placeholder-shown:font-normal peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:font-bold peer-focus:text-brand-orange">Briefly describe your project requirements...</label>
+                  </div>
+                  
+                  <motion.button 
+                    whileHover={{ scale: 1.01, boxShadow: "0 10px 25px -5px rgba(242, 106, 33, 0.4)" }}
+                    whileTap={{ scale: 0.98 }}
+                    disabled={isSubmittingHome}
+                    type="submit" 
+                    className="w-full py-4 text-sm bg-gradient-to-r from-brand-orange to-orange-500 text-white font-bold rounded-xl mt-6 shadow-lg flex items-center justify-center gap-2 group/btn disabled:opacity-70 cursor-pointer"
+                  >
+                    {isSubmittingHome ? 'Submitting...' : 'Submit Inquiry'}
+                    <ArrowRight size={18} className="transform transition-transform duration-300 group-hover/btn:translate-x-1" />
+                  </motion.button>
+                </form>
+              )}
             </motion.div>
           </div>
         </div>

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { subscribeToProjects } from '../services/projectService';
 import { 
   Building2, 
   MapPin, 
@@ -149,21 +150,31 @@ const ALL_PROJECTS = [
   }
 ];
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Projects', count: ALL_PROJECTS.length },
-  { id: 'sustainability', label: 'Sustainability & Infra', count: 1 },
-  { id: 'renewable', label: 'Renewable Energies', count: 2 },
-  { id: 'government', label: 'Government Supplies', count: 1 },
-  { id: 'network', label: 'Network & CCTV Security', count: 2 },
-];
-
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeModalProject, setActiveModalProject] = useState(null);
+  const [projectsList, setProjectsList] = useState(ALL_PROJECTS);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToProjects((updated) => {
+      if (updated && updated.length > 0) {
+        setProjectsList(updated);
+      }
+    }, ALL_PROJECTS);
+    return () => unsubscribe();
+  }, []);
+
+  const categories = [
+    { id: 'all', label: 'All Projects', count: projectsList.length },
+    { id: 'sustainability', label: 'Sustainability & Infra', count: projectsList.filter(p => p.divisionId === 'sustainability').length },
+    { id: 'renewable', label: 'Renewable Energies', count: projectsList.filter(p => p.divisionId === 'renewable').length },
+    { id: 'government', label: 'Government Supplies', count: projectsList.filter(p => p.divisionId === 'government').length },
+    { id: 'network', label: 'Network & CCTV Security', count: projectsList.filter(p => p.divisionId === 'network').length },
+  ];
 
   const filteredProjects = selectedCategory === 'all'
-    ? ALL_PROJECTS
-    : ALL_PROJECTS.filter(p => p.divisionId === selectedCategory);
+    ? projectsList
+    : projectsList.filter(p => p.divisionId === selectedCategory);
 
   return (
     <div className="w-full pt-20">
@@ -218,7 +229,7 @@ const Projects = () => {
           {/* Category Tabs */}
           <div className="flex items-center justify-center mb-12">
             <div className="inline-flex flex-wrap gap-2 p-1.5 bg-white rounded-2xl border border-border-gray shadow-xs">
-              {CATEGORIES.map((cat) => {
+              {categories.map((cat) => {
                 const isSelected = selectedCategory === cat.id;
                 return (
                   <button

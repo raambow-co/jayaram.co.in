@@ -280,21 +280,21 @@ const Projects = () => {
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
                       <span 
                         className="text-[11px] font-bold px-3 py-1 rounded-full shadow-md backdrop-blur-md text-white"
-                        style={{ backgroundColor: project.themeColor }}
+                        style={{ backgroundColor: project.themeColor || '#0B2E73' }}
                       >
-                        {project.category}
+                        {project.category || project.division || 'Infrastructure'}
                       </span>
                       <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
                         project.status === 'Delivered' ? 'bg-emerald-500 text-white' : 'bg-amber-500 text-white'
                       }`}>
-                        {project.status}
+                        {project.status || 'Active'}
                       </span>
                     </div>
 
                     {/* Bottom Scale Badge */}
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs">
                       <span className="font-mono font-bold bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
-                        {project.scale}
+                        {project.scale || project.capacity || 'Turnkey Scope'}
                       </span>
                       <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-brand-orange group-hover:scale-110 transition-all">
                         <Eye size={16} />
@@ -312,12 +312,12 @@ const Projects = () => {
                         {project.title}
                       </h3>
                       <p className="text-xs text-text-secondary leading-relaxed line-clamp-3 mb-4">
-                        {project.summary}
+                        {project.summary || project.description}
                       </p>
 
                       {/* Specs List */}
                       <div className="space-y-1.5 pt-3 border-t border-border-gray/70">
-                        {project.specs.slice(0, 2).map((sp, idx) => (
+                        {(project.specs && project.specs.length > 0 ? project.specs.slice(0, 2) : [project.capacity || project.scale || 'Full Engineering Deployment']).map((sp, idx) => (
                           <div key={idx} className="flex items-center gap-2 text-[11px] text-text-primary">
                             <CheckCircle2 size={13} className="text-brand-orange shrink-0" />
                             <span className="truncate">{sp}</span>
@@ -392,7 +392,7 @@ const Projects = () => {
                   {activeModalProject.title}
                 </h2>
                 <p className="text-sm text-text-secondary mt-2 leading-relaxed">
-                  {activeModalProject.summary}
+                  {activeModalProject.summary || activeModalProject.description}
                 </p>
               </div>
 
@@ -400,7 +400,7 @@ const Projects = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-2xl bg-light-bg border border-border-gray text-xs">
                 <div>
                   <span className="text-text-muted block text-[10px] uppercase font-bold">Scope / Capacity</span>
-                  <span className="font-bold text-corporate-blue text-sm mt-0.5 block">{activeModalProject.scale}</span>
+                  <span className="font-bold text-corporate-blue text-sm mt-0.5 block">{activeModalProject.scale || activeModalProject.capacity || 'Turnkey EPC Scope'}</span>
                 </div>
                 <div>
                   <span className="text-text-muted block text-[10px] uppercase font-bold">Deployment Region</span>
@@ -416,7 +416,10 @@ const Projects = () => {
               <div>
                 <h4 className="font-bold text-sm text-corporate-blue mb-3">Key Technical Deliverables</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {activeModalProject.specs.map((spec, i) => (
+                  {(activeModalProject.specs && activeModalProject.specs.length > 0 ? activeModalProject.specs : [
+                    activeModalProject.scale || activeModalProject.capacity || 'Contract Specification Fulfilled',
+                    'Direct Quality Assurance & Commissioning'
+                  ]).map((spec, i) => (
                     <div key={i} className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-border-gray text-xs text-text-primary">
                       <CheckCircle2 size={16} className="text-brand-orange shrink-0 mt-0.5" />
                       <span>{spec}</span>

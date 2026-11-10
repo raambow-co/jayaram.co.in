@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network, CheckCircle2 } from 'lucide-react';
 import { submitInquiry } from '../services/inquiryService';
+import { subscribeToProjects } from '../services/projectService';
 const India3DMap = lazy(() => import('../components/India3DMap'));
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -122,6 +123,21 @@ const Home = () => {
   });
   const [isSubmittingHome, setIsSubmittingHome] = useState(false);
   const [homeSubmitted, setHomeSubmitted] = useState(false);
+  const [liveProjects, setLiveProjects] = useState(featuredProjects);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToProjects((projects) => {
+      if (projects && projects.length > 0) {
+        const mapped = projects.slice(0, 6).map(p => ({
+          img: p.imageUrl || p.img || '/sustainability-infra.jpg',
+          title: p.title,
+          desc: p.summary || p.description || p.desc || ''
+        }));
+        setLiveProjects(mapped);
+      }
+    }, featuredProjects);
+    return () => unsubscribe();
+  }, []);
 
   const handleHomeSubmit = async (e) => {
     e.preventDefault();
@@ -166,11 +182,12 @@ const Home = () => {
   }, [location]);
 
   useEffect(() => {
+    if (liveProjects.length === 0) return;
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % featuredProjects.length);
+      setActiveIndex((current) => (current + 1) % liveProjects.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [liveProjects.length]);
 
   return (
     <div className="w-full">
@@ -345,10 +362,10 @@ const Home = () => {
         </div>
         
         <div className="relative h-[300px] md:h-[500px] w-full flex justify-center items-center mt-8">
-          {featuredProjects.map((project, index) => {
-            const offset = (index - activeIndex + featuredProjects.length) % featuredProjects.length;
+          {liveProjects.map((project, index) => {
+            const offset = (index - activeIndex + liveProjects.length) % liveProjects.length;
             const isCenter = offset === 0;
-            const isLeft = offset === featuredProjects.length - 1;
+            const isLeft = offset === liveProjects.length - 1;
             const isRight = offset === 1;
             const isHidden = !isCenter && !isLeft && !isRight;
 

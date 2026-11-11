@@ -5,17 +5,17 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://jayaram.co.in/</loc>
+    <loc>https://www.jayarams.co.in/</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://jayaram.co.in/jayarams-logo-lockup.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/jayarams-logo-lockup.webp</image:loc>
       <image:title>Jayarams Bharat Private Limited - Engineering Excellence</image:title>
       <image:caption>Turnkey Engineering &amp; Infrastructure Conglomerate in Andhra Pradesh</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jayaram.co.in/renewable-energies.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/renewable-energies.webp</image:loc>
       <image:title>Commercial Solar EPC &amp; EV Hub</image:title>
       <image:caption>Solar EPC, Rooftop Solar, and EV Charging Plazas across Vijayawada, Eluru, and Andhra Pradesh</image:caption>
     </image:image>
@@ -23,29 +23,29 @@
 
   <!-- Renewable Energies Division -->
   <url>
-    <loc>https://jayaram.co.in/renewable-energies</loc>
+    <loc>https://www.jayarams.co.in/renewable-energies</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://jayaram.co.in/renewable-energies.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/renewable-energies.webp</image:loc>
       <image:title>Renewable Energies - Solar EPC &amp; EV Infrastructure</image:title>
       <image:caption>Turnkey Solar Power Plants, Rooftop PV Arrays, and DC Ultra-Fast EV Charging Infrastructure</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jayaram.co.in/solar-jairam.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/solar-jairam.webp</image:loc>
       <image:title>Commercial Solar Canopy &amp; EV Charging Hub</image:title>
     </image:image>
   </url>
 
   <!-- Sustainability & Environmental Infrastructure -->
   <url>
-    <loc>https://jayaram.co.in/sustainability-environmental-infrastructure</loc>
+    <loc>https://www.jayarams.co.in/sustainability-environmental-infrastructure</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://jayaram.co.in/sustainability-infra.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/sustainability-infra.webp</image:loc>
       <image:title>Sustainability &amp; Environmental Infrastructure</image:title>
       <image:caption>Wastewater Reclamation, ETP, STP, ZLD, Legacy Landfill Bio-mining across Vijayawada, Eluru, and Godavari</image:caption>
     </image:image>
@@ -53,29 +53,29 @@
 
   <!-- Network Integration & CCTV Security -->
   <url>
-    <loc>https://jayaram.co.in/network-integration</loc>
+    <loc>https://www.jayarams.co.in/network-integration</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://jayaram.co.in/network-integration.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/network-integration.webp</image:loc>
       <image:title>Network Integration &amp; Command Control Centers</image:title>
       <image:caption>Enterprise Optical Fiber, AI-driven CCTV Surveillance, and Smart City Command Centers</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jayaram.co.in/cctv.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/cctv.webp</image:loc>
       <image:title>AI Node Surveillance &amp; CCTV Optics</image:title>
     </image:image>
   </url>
 
   <!-- Government Supplies & CSR -->
   <url>
-    <loc>https://jayaram.co.in/government-supplies</loc>
+    <loc>https://www.jayarams.co.in/government-supplies</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://jayaram.co.in/government-supplies.webp</image:loc>
+      <image:loc>https://www.jayarams.co.in/government-supplies.webp</image:loc>
       <image:title>Government Supplies &amp; GeM Procurement</image:title>
       <image:caption>GeM Institutional Procurement, Heavy Earthmoving Machinery, Civil Infrastructure, and Disaster Relief</image:caption>
     </image:image>
@@ -83,7 +83,7 @@
 
   <!-- Consultancy Services -->
   <url>
-    <loc>https://jayaram.co.in/consultancy-services</loc>
+    <loc>https://www.jayarams.co.in/consultancy-services</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -91,7 +91,7 @@
 
   <!-- Projects Showcase Portfolio -->
   <url>
-    <loc>https://jayaram.co.in/projects</loc>
+    <loc>https://www.jayarams.co.in/projects</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
@@ -99,7 +99,7 @@
 
   <!-- About Us -->
   <url>
-    <loc>https://jayaram.co.in/about</loc>
+    <loc>https://www.jayarams.co.in/about</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -107,7 +107,7 @@
 
   <!-- Testimonials & Client Endorsements -->
   <url>
-    <loc>https://jayaram.co.in/testimonials</loc>
+    <loc>https://www.jayarams.co.in/testimonials</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -115,7 +115,7 @@
 
   <!-- Contact & Direct Engagement Desk -->
   <url>
-    <loc>https://jayaram.co.in/contact</loc>
+    <loc>https://www.jayarams.co.in/contact</loc>
     <lastmod>2026-11-11T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

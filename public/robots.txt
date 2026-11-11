@@ -3,6 +3,5 @@ User-agent: *
 Allow: /
 
 # Host & Sitemap
-Host: https://jayaram.co.in
-Sitemap: https://jayaram.co.in/sitemap.xml
-
+Host: https://www.jayarams.co.in
+Sitemap: https://www.jayarams.co.in/sitemap.xml

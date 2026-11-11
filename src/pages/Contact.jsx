@@ -88,7 +88,7 @@ const Contact = () => {
               <div className="bg-white p-8 rounded-3xl border border-border-gray shadow-xs space-y-6">
                 <div className="flex items-center gap-4 pb-6 border-b border-border-gray">
                   <div className="w-16 h-16 p-2 rounded-2xl bg-slate-50 border border-border-gray flex items-center justify-center">
-                    <img src="/jayarams-logo-lockup.png" alt="Jayarams Bharat" className="w-full h-full object-contain" />
+                    <img src="/jayarams-logo-lockup.webp" alt="Jayarams Bharat" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <h3 className="font-bold text-base text-corporate-blue">Jayarams Bharat Private Limited</h3>

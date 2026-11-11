@@ -53,7 +53,7 @@ const EVInfrastructure = () => {
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <img src="/logo.png" className="w-16 h-16 object-contain" alt="Jayarams" />
+              <img src="/logo.webp" className="w-16 h-16 object-contain" alt="Jayarams" />
             </div>
           </div>
         </div>

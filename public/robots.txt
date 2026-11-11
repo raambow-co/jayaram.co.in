@@ -1,0 +1,7 @@
+# Robots.txt for Jayarams Bharat Private Limited
+User-agent: *
+Allow: /
+
+# Host & Sitemap
+Host: https://jayaram.co.in
+Sitemap: https://jayaram.co.in/sitemap.xml

@@ -41,35 +41,35 @@ const DIVISIONS = [
   {
     name: 'Sustainability & Environmental Infrastructure',
     icon: Leaf,
-    image: '/sustainability-infra.jpg',
+    image: '/sustainability-infra.webp',
     desc: 'Ecological bio-mining, effluent treatment, zero liquid discharge, and climate-resilient water infrastructure.',
     link: '/sustainability-environmental-infrastructure'
   },
   {
     name: 'Renewable Energies',
     icon: Zap,
-    image: '/renewable-energies.jpg',
+    image: '/renewable-energies.webp',
     desc: 'Commercial & utility-scale Solar EPC, rooftop PV arrays, high-power DC EV charging plazas, and microgrid systems.',
     link: '/renewable-energies'
   },
   {
     name: 'Government Supplies & CSR',
     icon: Landmark,
-    image: '/government-supplies.jpeg',
+    image: '/government-supplies.webp',
     desc: 'GeM verified institutional procurement, municipal civil machinery, disaster rapid response gear, and public works.',
     link: '/government-supplies'
   },
   {
     name: 'Network Integration',
     icon: Network,
-    image: '/network-integration.jpg',
+    image: '/network-integration.webp',
     desc: 'Turnkey optical fiber backbones, AI CCTV surveillance, Smart City Command Centers (ICCC), and enterprise data links.',
     link: '/network-integration'
   },
   {
     name: 'Consultancy Services',
     icon: Briefcase,
-    image: '/solar-jairam.jpeg',
+    image: '/solar-jairam.webp',
     desc: 'Detailed Project Reports (DPR), EIA statutory clearances, techno-commercial feasibility, and project PMO.',
     link: '/consultancy-services'
   }
@@ -121,7 +121,7 @@ const About = () => {
             >
               <div className="relative p-8 bg-white/95 rounded-3xl border border-white/30 shadow-2xl flex flex-col items-center text-center max-w-md w-full">
                 <div className="w-32 h-32 flex items-center justify-center p-2 rounded-2xl bg-slate-50 border border-border-gray mb-4">
-                  <img src="/jayarams-logo-lockup.png" alt="Jayarams Bharat" className="w-full h-full object-contain" />
+                  <img src="/jayarams-logo-lockup.webp" alt="Jayarams Bharat" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-xl font-bold text-corporate-blue">Jayarams Bharat Private Limited</h3>
                 <p className="text-xs text-brand-orange font-semibold tracking-wider uppercase mt-1">

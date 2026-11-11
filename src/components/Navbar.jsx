@@ -49,7 +49,7 @@ const Navbar = () => {
         {/* Logo Area */}
         <Link to="/" className="flex items-center gap-3">
           <div className="p-1 rounded">
-            <img src="/logo.png" alt="Jayarams Bharat Private Limited" className="h-12 w-auto object-contain" />
+            <img src="/logo.webp" alt="Jayarams Bharat Private Limited" className="h-12 w-auto object-contain" />
           </div>
         </Link>
 

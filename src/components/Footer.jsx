@@ -67,7 +67,7 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="flex flex-col gap-6">
             <Link to="/" className="flex items-center gap-3">
               <div className="bg-white p-2 rounded">
-                <img src="/logo.png" alt="Jayarams Bharat Private Limited" className="h-14 w-auto object-contain" />
+                <img src="/logo.webp" alt="Jayarams Bharat Private Limited" className="h-14 w-auto object-contain" />
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">

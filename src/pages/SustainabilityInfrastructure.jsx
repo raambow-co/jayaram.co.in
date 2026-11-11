@@ -37,7 +37,7 @@ const SustainabilityInfrastructure = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-navy-blue via-navy-blue/85 to-transparent z-10"></div>
           <motion.img 
-            src="/sustainability-infra.jpg" 
+            src="/sustainability-infra.webp" 
             alt="Sustainability and Environmental Infrastructure" 
             className="w-full h-full object-cover"
             animate={prefersReducedMotion ? {} : { y: ["0%", "-1%", "0%"] }}
@@ -54,7 +54,7 @@ const SustainabilityInfrastructure = () => {
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <img src="/logo.png" className="w-16 h-16 object-contain" alt="Jayarams" />
+              <img src="/logo.webp" className="w-16 h-16 object-contain" alt="Jayarams" />
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ const SustainabilityInfrastructure = () => {
             >
               <motion.img 
                 variants={itemVariants}
-                src="/sustainability-infra.jpg" 
+                src="/sustainability-infra.webp" 
                 alt="Environmental Hub" 
                 className="w-full h-72 object-cover rounded-xl shadow-lg border border-border-gray/50" 
               />

@@ -38,7 +38,7 @@ const RenewableEnergies = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-navy-blue via-navy-blue/85 to-transparent z-10"></div>
           <motion.img 
-            src="/renewable-energies.jpg" 
+            src="/renewable-energies.webp" 
             alt="Renewable Energies - Solar EPC and EV Charging Infrastructure" 
             className="w-full h-full object-cover"
             animate={prefersReducedMotion ? {} : { y: ["0%", "-1%", "0%"] }}
@@ -55,7 +55,7 @@ const RenewableEnergies = () => {
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <img src="/logo.png" className="w-16 h-16 object-contain" alt="Jayarams" />
+              <img src="/logo.webp" className="w-16 h-16 object-contain" alt="Jayarams" />
             </div>
           </div>
         </div>
@@ -181,12 +181,12 @@ const RenewableEnergies = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <img 
-                  src="/solar-jairam.jpeg" 
+                  src="/solar-jairam.webp" 
                   alt="Solar EPC Installation" 
                   className="w-full h-72 object-cover rounded-xl shadow-lg border border-border-gray/50" 
                 />
                 <img 
-                  src="/renewable-energies.jpg" 
+                  src="/renewable-energies.webp" 
                   alt="Utility Scale Solar & Clean Power" 
                   className="w-full h-72 object-cover rounded-xl shadow-lg border border-border-gray/50 mt-8" 
                 />

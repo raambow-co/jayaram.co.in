@@ -37,7 +37,7 @@ const NetworkIntegration = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-navy-blue via-navy-blue/85 to-transparent z-10"></div>
           <motion.img 
-            src="/network-integration.jpg" 
+            src="/network-integration.webp" 
             alt="Network Integration and Intelligent Surveillance" 
             className="w-full h-full object-cover"
             animate={prefersReducedMotion ? {} : { y: ["0%", "-1%", "0%"] }}
@@ -54,7 +54,7 @@ const NetworkIntegration = () => {
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <img src="/logo.png" className="w-16 h-16 object-contain" alt="Jayarams" />
+              <img src="/logo.webp" className="w-16 h-16 object-contain" alt="Jayarams" />
             </div>
           </div>
         </div>
@@ -155,13 +155,13 @@ const NetworkIntegration = () => {
             >
               <motion.img 
                 variants={itemVariants}
-                src="/network-integration.jpg" 
+                src="/network-integration.webp" 
                 alt="Command Center & Server Racks" 
                 className="w-full h-72 object-cover rounded-xl shadow-lg border border-border-gray/50" 
               />
               <motion.img 
                 variants={itemVariants}
-                src="/cctv.jpeg" 
+                src="/cctv.webp" 
                 alt="Intelligent CCTV & AI Surveillance" 
                 className="w-full h-72 object-cover rounded-xl shadow-lg border border-border-gray/50 mt-8" 
               />

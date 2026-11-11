@@ -1,0 +1,26 @@
+{
+  "name": "Jayarams Bharat Private Limited",
+  "short_name": "Jayarams Bharat",
+  "description": "Leading Engineering Conglomerate in Solar EPC, Environmental Infrastructure, Network Integration & Government Supplies across Andhra Pradesh",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0B2E73",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "start_url": "/"
+}

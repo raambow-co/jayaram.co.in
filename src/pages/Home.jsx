@@ -46,22 +46,22 @@ const testimonialsRow2 = [
 
 const featuredProjects = [
   {
-    img: "/sustainability-infra.jpg",
+    img: "/sustainability-infra.webp",
     title: "Sustainable Environmental Hub",
     desc: "Closed-loop wastewater reclamation and eco-resilient civil engineering."
   },
   {
-    img: "/renewable-energies.jpg",
+    img: "/renewable-energies.webp",
     title: "Renewable Energy Hub",
     desc: "Commercial Solar EPC coupled with high-speed EV charging infrastructure."
   },
   {
-    img: "/network-integration.jpg",
+    img: "/network-integration.webp",
     title: "Enterprise Network & Command Center",
     desc: "Optical fiber backbones integrated with AI surveillance systems."
   },
   {
-    img: "/government-supplies.jpeg",
+    img: "/government-supplies.webp",
     title: "Government Procurement & Supplies",
     desc: "Institutional delivery and national tender fulfillment across sectors."
   },
@@ -129,7 +129,7 @@ const Home = () => {
     const unsubscribe = subscribeToProjects((projects) => {
       if (projects && projects.length > 0) {
         const mapped = projects.slice(0, 6).map(p => ({
-          img: p.imageUrl || p.img || '/sustainability-infra.jpg',
+          img: p.imageUrl || p.img || '/sustainability-infra.webp',
           title: p.title,
           desc: p.summary || p.description || p.desc || ''
         }));
@@ -306,10 +306,10 @@ const Home = () => {
             variants={containerVariants}
           >
             {[
-              { name: "Sustainability & Environmental Infrastructure", icon: Leaf, link: "/sustainability-environmental-infrastructure", desc: "Water treatment, waste recovery & climate-resilient green engineering.", img: "/sustainability-infra.jpg", span: "md:col-span-7" },
-              { name: "Renewable Energies", icon: Zap, link: "/renewable-energies", desc: "End-to-end Solar EPC and nationwide EV charging networks.", img: "/renewable-energies.jpg", span: "md:col-span-5" },
-              { name: "Government Supplies", icon: Landmark, link: "/government-supplies", desc: "Institutional procurement and mission-critical tender execution.", img: "/government-supplies.jpeg", span: "md:col-span-4" },
-              { name: "Network Integration", icon: Network, link: "/network-integration", desc: "Enterprise networking, smart AI surveillance & command centers.", img: "/network-integration.jpg", span: "md:col-span-4" },
+              { name: "Sustainability & Environmental Infrastructure", icon: Leaf, link: "/sustainability-environmental-infrastructure", desc: "Water treatment, waste recovery & climate-resilient green engineering.", img: "/sustainability-infra.webp", span: "md:col-span-7" },
+              { name: "Renewable Energies", icon: Zap, link: "/renewable-energies", desc: "End-to-end Solar EPC and nationwide EV charging networks.", img: "/renewable-energies.webp", span: "md:col-span-5" },
+              { name: "Government Supplies", icon: Landmark, link: "/government-supplies", desc: "Institutional procurement and mission-critical tender execution.", img: "/government-supplies.webp", span: "md:col-span-4" },
+              { name: "Network Integration", icon: Network, link: "/network-integration", desc: "Enterprise networking, smart AI surveillance & command centers.", img: "/network-integration.webp", span: "md:col-span-4" },
               { name: "Consultancy Services", icon: Briefcase, link: "/consultancy-services", desc: "Technical feasibility, regulatory compliance & project advisory.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop", span: "md:col-span-4" }
             ].map((division, idx) => (
               <motion.div key={idx} variants={itemVariants} className={`relative overflow-hidden rounded-xl group ${division.span} shadow-md`}>
@@ -326,7 +326,7 @@ const Home = () => {
                       transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                     />
                     <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center shadow-lg">
-                      <img src="/logo.png" className="w-10 h-10 object-contain" alt="Jayarams" />
+                      <img src="/logo.webp" className="w-10 h-10 object-contain" alt="Jayarams" />
                     </div>
                   </div>
 

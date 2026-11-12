@@ -91,8 +91,8 @@ const Contact = () => {
                     <img src="/jayarams-logo-lockup.webp" alt="Jayarams Bharat" className="w-full h-full object-contain" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-base text-corporate-blue">Jayarams Bharat Private Limited</h3>
-                    <p className="text-xs text-brand-orange font-semibold uppercase tracking-wider">Corporate Headquarters</p>
+                    <h3 className="font-bold text-base text-corporate-blue">Jayarams Bharat (jayarams-bharat)</h3>
+                    <p className="text-xs text-brand-orange font-semibold uppercase tracking-wider">Engineering Headquarters &amp; Operations</p>
                   </div>
                 </div>
 
@@ -102,9 +102,12 @@ const Contact = () => {
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <span className="text-xs text-text-muted font-bold uppercase block">Registered Office</span>
+                      <span className="text-xs text-text-muted font-bold uppercase block">Regional Hub &amp; Operations</span>
                       <span className="text-text-primary font-medium leading-relaxed block mt-0.5">
-                        123 Corporate Tower, Financial District, Hyderabad, India 500032
+                        Jayarams Bharat Corporate Hub, Vijayawada – Eluru Industrial Highway Corridor, Andhra Pradesh, India 520001
+                      </span>
+                      <span className="text-[11px] text-brand-orange font-semibold block mt-1">
+                        Rapid On-Site Engineering Response across Vijayawada, Eluru, Rajahmundry &amp; Guntur (1km – 50km radius)
                       </span>
                     </div>
                   </div>

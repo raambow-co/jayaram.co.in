@@ -1,7 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network, CheckCircle2, MapPin } from 'lucide-react';
 import { submitInquiry } from '../services/inquiryService';
 import { subscribeToProjects } from '../services/projectService';
 const India3DMap = lazy(() => import('../components/India3DMap'));
@@ -199,20 +199,30 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="max-w-2xl order-2 lg:order-1">
               <motion.div variants={containerVariants} initial="hidden" animate="visible" className="mb-4">
-                <motion.span variants={itemVariants} className="inline-block py-1 px-3 rounded-full bg-light-bg text-corporate-blue text-xs font-bold tracking-widest uppercase mb-4 border border-border-gray">
-                  National Level Infrastructure
+                <motion.span variants={itemVariants} className="inline-flex items-center gap-2 py-1 px-3.5 rounded-full bg-light-bg text-corporate-blue text-xs font-bold tracking-widest uppercase mb-4 border border-border-gray">
+                  <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                  Jayarams Bharat (jayarams-bharat) • Andhra Pradesh Engineering Conglomerate
                 </motion.span>
               </motion.div>
               
               <motion.h1 
-                className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-corporate-blue leading-[1.2] mb-10 tracking-tight"
+                className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-corporate-blue leading-[1.2] mb-6 tracking-tight"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <motion.span variants={itemVariants} className="block text-transparent bg-clip-text bg-gradient-to-r from-corporate-blue to-navy-blue pb-2">Building India's Future</motion.span>
-                <motion.span variants={itemVariants} className="block">Through Engineering Excellence</motion.span>
+                <motion.span variants={itemVariants} className="block text-transparent bg-clip-text bg-gradient-to-r from-corporate-blue to-navy-blue pb-2">Jayarams Bharat</motion.span>
+                <motion.span variants={itemVariants} className="block text-2xl md:text-3xl lg:text-4xl text-text-primary font-bold">Building India's Future Through Engineering Excellence</motion.span>
               </motion.h1>
+
+              <motion.p 
+                variants={itemVariants} 
+                initial="hidden"
+                animate="visible"
+                className="text-text-secondary text-sm md:text-base leading-relaxed mb-8 max-w-xl"
+              >
+                Premier turnkey engineering and EPC conglomerate delivering commercial <strong>Solar EPC</strong>, <strong>EV Infrastructure</strong>, <strong>Wastewater Reclamation (ETP/STP)</strong>, and <strong>AI CCTV Surveillance</strong> with active operational hubs across <strong>Vijayawada</strong>, <strong>Eluru</strong>, <strong>Rajahmundry</strong>, and surrounding corridors.
+              </motion.p>
               
               <motion.div 
                 className="flex flex-col sm:flex-row gap-4"
@@ -471,6 +481,105 @@ const Home = () => {
         </div>
       </section>
 
+      {/* 5.5 Regional Engineering Presence & Local Corridors (SEO & Local Dominance) */}
+      <section className="py-20 bg-gradient-to-b from-light-bg via-white to-light-bg border-y border-border-gray/60">
+        <div className="container mx-auto px-6 md:px-12">
+          <motion.div 
+            className="text-center max-w-3xl mx-auto mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-bold tracking-widest uppercase mb-4">
+              <MapPin size={14} className="text-brand-orange" />
+              Regional Service Corridors • Immediate 1km – 50km Local Deployment
+            </motion.div>
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-extrabold text-corporate-blue mb-4 tracking-tight">
+              Engineering Hubs in Vijayawada, Eluru &amp; Andhra Pradesh
+            </motion.h2>
+            <motion.div variants={itemVariants} className="w-20 h-1 bg-brand-orange mx-auto mb-6"></motion.div>
+            <motion.p variants={itemVariants} className="text-sm md:text-base text-text-secondary leading-relaxed">
+              <strong className="text-corporate-blue">Jayarams Bharat (jayarams-bharat)</strong> maintains active on-site engineering desks across Andhra Pradesh. We guarantee rapid technical inspection, feasibility studies, and direct turnkey project execution across municipal and industrial corridors within a 1km to 50km radius.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                city: "Vijayawada Operations Hub",
+                tag: "Rapid 1km – 25km Radius",
+                services: [
+                  "Commercial & Industrial Solar EPC",
+                  "Municipal AI CCTV Surveillance Networks",
+                  "Fiber Optic Enterprise Integration",
+                  "Industrial STP & ETP Wastewater Plants"
+                ]
+              },
+              {
+                city: "Eluru Engineering Center",
+                tag: "Rapid 1km – 30km Radius",
+                services: [
+                  "Commercial Solar Rooftop Arrays",
+                  "High-Power DC EV Charging Plazas",
+                  "GeM Government Supplies & Tenders",
+                  "Heavy Equipment & Civil Infrastructure"
+                ]
+              },
+              {
+                city: "Rajahmundry & Godavari Belt",
+                tag: "Active Project Corridors",
+                services: [
+                  "Legacy Waste Bio-mining & Landfills",
+                  "Zero Liquid Discharge (ZLD) Systems",
+                  "Smart City Command Centers (ICCC)",
+                  "Infrastructure DPR & Feasibility"
+                ]
+              },
+              {
+                city: "Guntur & Amaravati Capital Region",
+                tag: "Capital Infrastructure Belt",
+                services: [
+                  "Highway EV Charging Networks",
+                  "City-wide Security Infrastructure",
+                  "Large-Scale Public Works Execution",
+                  "Comprehensive PMO & EPC Advisory"
+                ]
+              }
+            ].map((hub, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-white rounded-2xl p-6 border border-border-gray/80 hover:border-brand-orange/50 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-1 rounded-full uppercase tracking-wider">{hub.tag}</span>
+                    <MapPin size={16} className="text-corporate-blue group-hover:text-brand-orange transition-colors" />
+                  </div>
+                  <h3 className="font-bold text-base text-corporate-blue mb-4 group-hover:text-brand-orange transition-colors">{hub.city}</h3>
+                  <ul className="space-y-2.5 text-xs text-text-secondary">
+                    {hub.services.map((svc, sIdx) => (
+                      <li key={sIdx} className="flex items-start gap-2">
+                        <CheckCircle2 size={13} className="text-emerald-600 mt-0.5 shrink-0" />
+                        <span>{svc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-corporate-blue font-semibold">
+                  <span>Fast On-Site Deployment</span>
+                  <ChevronRight size={14} className="text-brand-orange group-hover:translate-x-1 transition-transform" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 6. Contact Section */}
       <section id="contact" className="py-24 bg-white overflow-hidden text-corporate-blue">
         <div className="container mx-auto px-6 md:px-12">
@@ -484,14 +593,14 @@ const Home = () => {
               <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Get In Touch</motion.h2>
               <motion.div variants={itemVariants} className="w-16 h-1 bg-brand-orange mb-8"></motion.div>
               <motion.p variants={itemVariants} className="text-sm md:text-base text-text-secondary mb-10 leading-relaxed max-w-md">
-                Partner with us for your next major engineering or infrastructure project. Our team of experts is ready to deliver excellence.
+                Partner with <strong>Jayarams Bharat</strong> for your next major engineering or infrastructure project. Our regional operations team is ready to deliver excellence.
               </motion.p>
               
               <motion.div variants={containerVariants} className="flex flex-col gap-8">
                 {[
-                  { icon: Building2, title: "Corporate Office", desc: "123 Corporate Tower, Financial District,\nHyderabad, Telangana 500032" },
-                  { icon: Zap, title: "Contact Details", desc: "Phone: +91 98765 43210\nEmail: info@jayaramsbharat.com" },
-                  { icon: Briefcase, title: "Working Hours", desc: "Monday - Saturday: 9:00 AM - 6:00 PM\nSunday: Closed" }
+                  { icon: Building2, title: "Operations & Engineering Hub", desc: "Jayarams Bharat Corporate Hub,\nVijayawada – Eluru Corridor, Andhra Pradesh 520001" },
+                  { icon: Zap, title: "Direct Contact Desk", desc: "Phone: +91 98765 43210\nEmail: info@jayaramsbharat.com" },
+                  { icon: Briefcase, title: "Operational Hours", desc: "Monday - Saturday: 9:00 AM - 6:00 PM IST\nRapid On-Site Team: 24/7 Priority Support" }
                 ].map((item, idx) => (
                   <motion.div key={idx} variants={itemVariants} className="flex gap-5 items-start group cursor-default">
                     <div className="w-12 h-12 bg-light-bg rounded-full border border-border-gray flex items-center justify-center shrink-0 group-hover:bg-brand-orange/10 group-hover:border-brand-orange/30 transition-colors duration-300">
@@ -639,13 +748,14 @@ const Home = () => {
             className="h-[450px] w-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(11,46,115,0.08)] border border-border-gray/50 relative group"
           >
             {/* Elegant overlay badge */}
-            <div className="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/60 flex items-center gap-4 transform transition-transform duration-500 hover:scale-105 cursor-default">
+            <div className="absolute top-6 left-6 z-10 bg-white/95 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl border border-white/60 flex items-center gap-4 transform transition-transform duration-500 hover:scale-105 cursor-default">
               <div className="w-12 h-12 bg-light-bg rounded-full flex items-center justify-center text-corporate-blue shadow-inner border border-border-gray/50">
-                <Building2 size={22} />
+                <Building2 size={22} className="text-brand-orange" />
               </div>
               <div>
-                <h4 className="font-bold text-corporate-blue text-sm">Jayarams Corporate Office</h4>
-                <p className="text-xs text-text-secondary">Rajahmundry, Andhra Pradesh</p>
+                <h4 className="font-bold text-corporate-blue text-sm">Jayarams Bharat (jayarams-bharat)</h4>
+                <p className="text-xs text-text-secondary">Vijayawada • Eluru • Rajahmundry • Andhra Pradesh</p>
+                <span className="text-[10px] text-brand-orange font-semibold block mt-0.5">Rapid 1km – 50km Local Deployment Hub</span>
               </div>
             </div>
             

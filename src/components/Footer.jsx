@@ -67,11 +67,11 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="flex flex-col gap-6">
             <Link to="/" className="flex items-center gap-3">
               <div className="bg-white p-2 rounded">
-                <img src="/logo.webp" alt="Jayarams Bharat Private Limited" className="h-14 w-auto object-contain" />
+                <img src="/logo.webp" alt="Jayarams Bharat (jayarams-bharat)" className="h-14 w-auto object-contain" />
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Building India's Future Through Engineering Excellence. We deliver turnkey renewable energies, environmental infrastructure, government supplies, network integration, and engineering consultancy across the nation.
+              <strong className="text-white font-semibold">Jayarams Bharat (jayarams-bharat)</strong> is Andhra Pradesh's premier engineering conglomerate. Delivering turnkey commercial Solar EPC, Sustainable Environmental Infrastructure, AI CCTV Surveillance, and Government Supplies across Vijayawada, Eluru, and nationwide.
             </p>
             <div className="flex gap-4">
               {[
@@ -121,11 +121,13 @@ const Footer = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants} className="flex flex-col gap-6">
-            <h3 className="text-lg font-semibold border-b border-white/20 pb-2 inline-block relative after:absolute after:bottom-[-1px] after:left-0 after:w-1/3 after:h-[1px] after:bg-brand-orange">Contact Us</h3>
+            <h3 className="text-lg font-semibold border-b border-white/20 pb-2 inline-block relative after:absolute after:bottom-[-1px] after:left-0 after:w-1/3 after:h-[1px] after:bg-brand-orange">Regional Presence</h3>
             <ul className="flex flex-col gap-4 text-gray-300 text-sm">
               <li className="flex gap-3 group cursor-default">
                 <MapPin size={20} className="text-brand-orange shrink-0 transform transition-transform duration-300 group-hover:scale-110" />
-                <span className="transition-colors duration-300 group-hover:text-white">123 Corporate Tower, Financial District, Hyderabad, India 500032</span>
+                <span className="transition-colors duration-300 group-hover:text-white">
+                  <strong>Jayarams Bharat Hub:</strong> Vijayawada – Eluru Industrial Corridor, Andhra Pradesh 520001, India
+                </span>
               </li>
               <li className="flex items-center gap-3 group">
                 <Phone size={18} className="text-brand-orange shrink-0 transform transition-transform duration-300 group-hover:scale-110" />
@@ -136,6 +138,10 @@ const Footer = () => {
                 <a href="mailto:info@jayaramsbharat.com" className="transition-colors duration-300 group-hover:text-white">info@jayaramsbharat.com</a>
               </li>
             </ul>
+            <div className="pt-2 border-t border-white/10 text-xs text-gray-400">
+              <span className="text-brand-orange font-semibold block mb-1">Local Deployment Zones (1km – 50km):</span>
+              Vijayawada • Eluru • Rajahmundry • Guntur • Amaravati
+            </div>
           </motion.div>
         </div>
 

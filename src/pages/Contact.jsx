@@ -12,6 +12,7 @@ import {
   Sparkles,
   Building2
 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -57,6 +58,11 @@ const Contact = () => {
 
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="Contact Jayarams Bharat | Vijayawada - Eluru Regional Engineering Hub"
+        description="Contact Jayarams Bharat (jayarams-bharat) regional engineering headquarters. Request rapid 1km to 50km on-site technical inspection in Vijayawada, Eluru, and Andhra Pradesh."
+        keywords="contact Jayarams Bharat, Vijayawada engineering office, Eluru solar contractor contact, Andhra Pradesh EPC inquiry"
+      />
       {/* Hero Section */}
       <section className="relative w-full py-20 bg-gradient-to-br from-corporate-blue via-navy-blue to-corporate-blue text-white overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>

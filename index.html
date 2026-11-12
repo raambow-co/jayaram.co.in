@@ -62,16 +62,28 @@
       });
     </script>
 
-    <!-- Google Fonts: Poppins -->
+    <!-- Google Fonts: Poppins & Preconnects -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Schema.org JSON-LD (LocalBusiness, Corporation & Regional Engineering Catalog) -->
+    <!-- Schema.org JSON-LD (WebSite, LocalBusiness, Corporation, GeoCircle & FAQPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.jayarams.co.in/#website",
+          "url": "https://www.jayarams.co.in/",
+          "name": "Jayarams Bharat",
+          "alternateName": "jayarams-bharat",
+          "description": "Premier Engineering Conglomerate delivering Commercial Solar EPC, EV Infrastructure, Environmental Wastewater Systems, and AI CCTV Surveillance in Andhra Pradesh.",
+          "inLanguage": "en-IN"
+        },
         {
           "@type": ["Corporation", "LocalBusiness", "GeneralContractor"],
           "@id": "https://www.jayarams.co.in/#corporation",
@@ -115,7 +127,26 @@
               "closes": "18:00"
             }
           ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91 98765 43210",
+              "contactType": "customer service",
+              "email": "info@jayaramsbharat.com",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Telugu", "Hindi"]
+            }
+          ],
           "areaServed": [
+            {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 16.5062,
+                "longitude": 80.6480
+              },
+              "geoRadius": "50000"
+            },
             { "@type": "City", "name": "Vijayawada" },
             { "@type": "City", "name": "Eluru" },
             { "@type": "City", "name": "Rajahmundry" },
@@ -128,8 +159,7 @@
             { "@type": "City", "name": "Gannavaram" },
             { "@type": "City", "name": "Mangalagiri" },
             { "@type": "City", "name": "Tenali" },
-            { "@type": "AdministrativeArea", "name": "Andhra Pradesh" },
-            { "@type": "AdministrativeArea", "name": "Telangana" }
+            { "@type": "AdministrativeArea", "name": "Andhra Pradesh" }
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -185,6 +215,52 @@
               }
             ]
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.jayarams.co.in/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What engineering and Solar EPC services does Jayarams Bharat provide in Vijayawada and Eluru?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jayarams Bharat (jayarams-bharat) delivers turnkey Commercial Solar EPC, high-power DC EV charging plazas, wastewater treatment (STP/ETP/ZLD), municipal legacy landfill bio-mining, enterprise optical fiber network integration, AI CCTV surveillance, and GeM institutional procurement across Vijayawada, Eluru, and Andhra Pradesh."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Jayarams Bharat's local service response radius across Andhra Pradesh?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Jayarams Bharat provides guaranteed rapid on-site technical inspection, engineering surveys, and emergency project support within an immediate 1km to 50km radius across Vijayawada, Eluru, Rajahmundry, Guntur, and the Amaravati capital region."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Jayarams Bharat handle DISCOM net-metering approvals for commercial solar projects in AP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Our Renewable Energies division manages the full statutory lifecycle including APEPDCL/APCPDCL net-metering sanctions, CEIG electrical safety approvals, transmission sync, and 25-year performance monitoring."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Jayarams Bharat certified for government tenders and institutional GeM procurement?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Jayarams Bharat is fully verified on the Government e-Marketplace (GeM) and executes institutional procurement, municipal civil projects, and heavy machinery logistics for government departments across Andhra Pradesh."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I request an on-site feasibility survey for an engineering project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can request an on-site feasibility inspection by submitting the inquiry form at jayarams.co.in or calling our regional engineering desk directly at +91 98765 43210. Our regional field engineers respond within 24 hours."
+              }
+            }
+          ]
         }
       ]
     }

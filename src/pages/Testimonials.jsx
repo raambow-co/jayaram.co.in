@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ShieldCheck, Sparkles, Building2, Quote, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -59,6 +60,11 @@ const TESTIMONIALS = [
 const Testimonials = () => {
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="Client Reviews &amp; Infrastructure Endorsements | Jayarams Bharat"
+        description="Read client testimonials and industry reviews on Jayarams Bharat (jayarams-bharat) engineering performance across Andhra Pradesh."
+        keywords="Jayarams Bharat reviews, Solar EPC client testimonials, engineering contractor ratings Andhra Pradesh"
+      />
       {/* Hero Section */}
       <section className="relative w-full py-20 bg-gradient-to-br from-corporate-blue via-navy-blue to-corporate-blue text-white overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>

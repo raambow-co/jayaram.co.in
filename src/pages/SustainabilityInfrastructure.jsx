@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Leaf, Droplets, Recycle, Trees } from 'lucide-react';
 import DivisionEnquiry from '../components/DivisionEnquiry';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -27,6 +28,11 @@ const SustainabilityInfrastructure = () => {
 
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="Wastewater Treatment (STP/ETP/ZLD) & Bio-Mining | Vijayawada & Eluru"
+        description="Turnkey industrial effluent treatment plants (ETP), sewage treatment plants (STP), zero liquid discharge (ZLD), and municipal legacy landfill bio-mining across Vijayawada, Eluru, and Andhra Pradesh."
+        keywords="Wastewater treatment plant contractor Vijayawada, STP ETP plant installation Eluru, Legacy waste bio-mining Andhra Pradesh, Zero Liquid Discharge ZLD contractor, Jayarams Bharat environmental infrastructure"
+      />
       {/* Hero Section */}
       <section className="relative w-full h-[65vh] min-h-[500px] flex items-center bg-navy-blue overflow-hidden">
         <motion.div 
@@ -75,7 +81,7 @@ const SustainabilityInfrastructure = () => {
             </motion.h1>
             <motion.div variants={itemVariants} className="w-24 h-1.5 bg-brand-orange mb-6 shadow-[0_0_15px_rgba(255,102,0,0.5)]"></motion.div>
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl drop-shadow-md leading-relaxed">
-              Engineering sustainable futures through water stewardship, waste-to-resource recovery, ecological restorations, and climate-resilient infrastructure.
+              Engineering sustainable futures across Vijayawada, Eluru, and Andhra Pradesh through turnkey <strong>ETP/STP Wastewater Reclamation</strong>, <strong>Zero Liquid Discharge (ZLD)</strong>, and <strong>Municipal Landfill Bio-mining</strong>.
             </motion.p>
           </motion.div>
         </div>

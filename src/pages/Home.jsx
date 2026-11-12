@@ -1,9 +1,10 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network, CheckCircle2, MapPin } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Zap, Building2, Landmark, Briefcase, Star, ChevronRight, Leaf, Network, CheckCircle2, MapPin, HelpCircle, Plus, Minus } from 'lucide-react';
 import { submitInquiry } from '../services/inquiryService';
 import { subscribeToProjects } from '../services/projectService';
+import SEO from '../components/SEO';
 const India3DMap = lazy(() => import('../components/India3DMap'));
 
 const easePremium = [0.16, 1, 0.3, 1];
@@ -124,6 +125,30 @@ const Home = () => {
   const [isSubmittingHome, setIsSubmittingHome] = useState(false);
   const [homeSubmitted, setHomeSubmitted] = useState(false);
   const [liveProjects, setLiveProjects] = useState(featuredProjects);
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const localFaqs = [
+    {
+      q: "What turnkey engineering services does Jayarams Bharat provide in Vijayawada and Eluru?",
+      a: "Jayarams Bharat (jayarams-bharat) delivers end-to-end Commercial & Industrial Solar EPC, High-Speed DC EV Charging Plazas, Wastewater Treatment (STP/ETP/ZLD), Municipal Landfill Bio-mining, Enterprise Optical Fiber Integration, AI CCTV Surveillance, and GeM Government Procurement across Vijayawada, Eluru, Rajahmundry, Guntur, and Andhra Pradesh."
+    },
+    {
+      q: "What is Jayarams Bharat's local response time and service radius?",
+      a: "Our regional engineering hubs in the Vijayawada – Eluru corridor provide guaranteed on-site technical inspection, detailed site audits, and project feasibility surveys within an immediate 1km to 50km radius across Krishna, NTR, West Godavari, and Guntur districts."
+    },
+    {
+      q: "Do you handle DISCOM net-metering approvals for commercial solar projects in Andhra Pradesh?",
+      a: "Yes. Our Renewable Energies division manages the full statutory compliance lifecycle including APEPDCL/APCPDCL net-metering approvals, CEIG electrical safety clearances, dedicated transformer commissioning, and real-time SCADA telemetry for industrial and commercial solar installations."
+    },
+    {
+      q: "Is Jayarams Bharat authorized for government tenders and institutional GeM procurement?",
+      a: "Absolutely. Jayarams Bharat is fully credentialed on the Government e-Marketplace (GeM) and executes institutional tenders, municipal civil machinery procurement, disaster rapid response equipment, and state-level infrastructure contracts."
+    },
+    {
+      q: "How can businesses in Vijayawada or Eluru schedule an on-site feasibility survey?",
+      a: "You can request an immediate on-site survey by filling out our project inquiry form below or calling our direct operations desk at +91 98765 43210. Our regional field engineers respond within 24 hours."
+    }
+  ];
 
   useEffect(() => {
     const unsubscribe = subscribeToProjects((projects) => {
@@ -191,6 +216,11 @@ const Home = () => {
 
   return (
     <div className="w-full">
+      <SEO 
+        title="Jayarams Bharat (jayarams-bharat) | Premier Solar EPC &amp; Engineering Conglomerate | Vijayawada &amp; Eluru"
+        description="Jayarams Bharat (jayarams-bharat) is Andhra Pradesh's premier engineering enterprise delivering Turnkey Commercial Solar EPC, EV Charging Plazas, Wastewater Treatment (ETP/STP), AI CCTV Surveillance, and Government Supplies across Vijayawada, Eluru, and Andhra Pradesh."
+        keywords="jayarams-bharat, jayarams bharat, jayarams, jayarams-bharat vijayawada, jayarams-bharat eluru, Solar EPC Vijayawada, Solar EPC Eluru, Commercial rooftop solar Andhra Pradesh, CCTV surveillance Vijayawada, Wastewater treatment plant contractor Eluru, Turnkey EPC contractor near me, Solar power plant Andhra Pradesh"
+      />
       {/* 1. Hero Section */}
       <section className="relative w-full min-h-screen flex items-center bg-white pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#0B2E73 1px, transparent 1px), linear-gradient(90deg, #0B2E73 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
@@ -576,6 +606,79 @@ const Home = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5.8 Frequently Asked Questions (Hyper-Local FAQ for SERP Dominance) */}
+      <section className="py-20 bg-white border-b border-border-gray/60">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+          <motion.div 
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-light-bg border border-border-gray text-corporate-blue text-xs font-bold tracking-widest uppercase mb-4">
+              <HelpCircle size={14} className="text-brand-orange" />
+              Frequently Asked Questions
+            </motion.div>
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-extrabold text-corporate-blue mb-4 tracking-tight">
+              Engineering Excellence &amp; Local Operations
+            </motion.h2>
+            <motion.div variants={itemVariants} className="w-16 h-1 bg-brand-orange mx-auto mb-4"></motion.div>
+            <motion.p variants={itemVariants} className="text-sm text-text-secondary">
+              Everything you need to know about our turnkey project capabilities across Vijayawada, Eluru, and Andhra Pradesh.
+            </motion.p>
+          </motion.div>
+
+          <div className="space-y-4">
+            {localFaqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                    isOpen ? 'border-brand-orange/60 bg-orange-50/20 shadow-md' : 'border-border-gray/80 bg-white hover:border-gray-300'
+                  }`}
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-bold text-sm md:text-base text-corporate-blue pr-2">
+                      {faq.q}
+                    </span>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                      isOpen ? 'bg-brand-orange text-white' : 'bg-light-bg text-corporate-blue'
+                    }`}>
+                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+                    </div>
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: easePremium }}
+                      >
+                        <div className="px-6 pb-6 pt-1 text-xs md:text-sm text-text-secondary leading-relaxed border-t border-orange-100/60 mt-1">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

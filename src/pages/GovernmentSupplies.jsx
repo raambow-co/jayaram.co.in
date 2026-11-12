@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import DivisionEnquiry from '../components/DivisionEnquiry';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -27,6 +28,11 @@ const GovernmentSupplies = () => {
 
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="GeM Government Supplies & Institutional Procurement | Andhra Pradesh"
+        description="Authorized institutional procurement on GeM, heavy earthmoving machinery, civil infrastructure equipment, and disaster relief logistics across Andhra Pradesh."
+        keywords="GeM government supplier Vijayawada, institutional procurement Eluru, heavy machinery supplier Andhra Pradesh, government contractor civil works"
+      />
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] flex items-center bg-navy-blue overflow-hidden">
         <motion.div 
@@ -70,7 +76,7 @@ const GovernmentSupplies = () => {
             </motion.h1>
             <motion.div variants={itemVariants} className="w-24 h-1.5 bg-brand-orange mb-6 shadow-[0_0_15px_rgba(255,102,0,0.5)]"></motion.div>
             <motion.p variants={itemVariants} className="text-xl text-gray-200 mb-8 max-w-2xl drop-shadow-md">
-              Executing complex institutional tenders and high-impact Corporate Social Responsibility infrastructure projects.
+              Executing complex institutional tenders, <strong>GeM portal procurement</strong>, and high-impact civil infrastructure projects across Vijayawada, Eluru, and Andhra Pradesh.
             </motion.p>
           </motion.div>
         </div>

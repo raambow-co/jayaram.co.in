@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Sun, Zap, BatteryCharging } from 'lucide-react';
 import DivisionEnquiry from '../components/DivisionEnquiry';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -28,6 +29,11 @@ const RenewableEnergies = () => {
 
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="Commercial Solar EPC & EV Charging Hubs | Vijayawada & Eluru"
+        description="Turnkey Commercial Solar EPC, rooftop solar panels, high-power DC EV charging plazas, and net metering approvals across Vijayawada, Eluru, and Andhra Pradesh."
+        keywords="Solar EPC Vijayawada, Solar EPC Eluru, Solar panel installation near Vijayawada, Commercial rooftop solar Andhra Pradesh, EV charging station contractor Eluru Vijayawada, Jayarams Bharat Solar, turnkey solar power plant Andhra Pradesh"
+      />
       {/* Hero Section */}
       <section className="relative w-full h-[65vh] min-h-[500px] flex items-center bg-navy-blue overflow-hidden">
         <motion.div 
@@ -76,7 +82,7 @@ const RenewableEnergies = () => {
             </motion.h1>
             <motion.div variants={itemVariants} className="w-24 h-1.5 bg-brand-orange mb-6 shadow-[0_0_15px_rgba(255,102,0,0.5)]"></motion.div>
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl drop-shadow-md leading-relaxed">
-              Accelerating India's decarbonization by converging high-efficiency Solar EPC solutions with nationwide Electric Vehicle (EV) charging infrastructure.
+              Accelerating Andhra Pradesh's clean energy transition by delivering high-efficiency <strong>Commercial Solar EPC</strong> and <strong>DC Fast EV Charging Hubs</strong> across Vijayawada, Eluru, Rajahmundry, and national highway corridors.
             </motion.p>
           </motion.div>
         </div>

@@ -17,6 +17,7 @@ import {
   MapPin
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -78,6 +79,11 @@ const DIVISIONS = [
 const About = () => {
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="About Jayarams Bharat | Premier Engineering &amp; Infrastructure Leadership"
+        description="Discover Jayarams Bharat (jayarams-bharat) — visionary engineering leadership, multi-disciplinary infrastructure capabilities, and ISO-certified execution across Andhra Pradesh."
+        keywords="about Jayarams Bharat, engineering company Vijayawada, infrastructure contractor Eluru, Jayarams Bharat leadership Andhra Pradesh"
+      />
       {/* Hero Section */}
       <section className="relative w-full py-24 bg-navy-blue text-white overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>

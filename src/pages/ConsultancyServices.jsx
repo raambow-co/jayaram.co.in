@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import DivisionEnquiry from '../components/DivisionEnquiry';
+import SEO from '../components/SEO';
 
 const easePremium = [0.16, 1, 0.3, 1];
 
@@ -27,6 +28,11 @@ const ConsultancyServices = () => {
 
   return (
     <div className="w-full pt-20">
+      <SEO 
+        title="Infrastructure Advisory, DPR & Project Feasibility | Andhra Pradesh"
+        description="Detailed Project Reports (DPR), statutory clearances, techno-economic feasibility studies, and PMO infrastructure advisory across Andhra Pradesh."
+        keywords="engineering consultancy Vijayawada, DPR preparation Eluru, infrastructure advisory Andhra Pradesh, capital works consultant"
+      />
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] flex items-center bg-navy-blue overflow-hidden">
         <motion.div 
@@ -70,7 +76,7 @@ const ConsultancyServices = () => {
             </motion.h1>
             <motion.div variants={itemVariants} className="w-24 h-1.5 bg-brand-orange mb-6 shadow-[0_0_15px_rgba(255,102,0,0.5)]"></motion.div>
             <motion.p variants={itemVariants} className="text-xl text-gray-200 mb-8 max-w-2xl drop-shadow-md">
-              Elite technical feasibility, strategic project management, and comprehensive regulatory compliance.
+              Elite technical feasibility, <strong>Detailed Project Reports (DPR)</strong>, and strategic capital PMO advisory across Vijayawada, Eluru, and Andhra Pradesh.
             </motion.p>
           </motion.div>
         </div>
